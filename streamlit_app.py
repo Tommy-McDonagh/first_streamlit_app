@@ -48,7 +48,6 @@ streamlit.dataframe(my_data_rows)
 
 
 # Adding a choice of fruit to add to list
-add_my_fruit = streamlit.text_input('What fruit would you like information about?','jackfruit')
-add_fruit_response = pandas.json_normalize(requests.get('https://fruityvice.com/api/fruit/'+add_my_fruit).json())
-my_cur.execute("INSERT INTO fruit_load_list VALUES (add_fruit_response)")
+add_my_fruit = streamlit.text_input('What fruit would you like to add?','jackfruit')
+my_cur.execute("INSERT INTO fruit_load_list VALUES (add_my_fruit)")
 streamlit.write(add_my_fruit, 'added.')
